@@ -418,7 +418,7 @@ class RoomMemberWorkerStore(EventsWorkerStore):
                 INNER JOIN events AS e USING (room_id, event_id)
                 WHERE
                     c.type = 'm.room.member'
-                    AND state_key = ?
+                    AND c.state_key = ?
                     AND c.membership = ?
             """
         else:
@@ -429,7 +429,7 @@ class RoomMemberWorkerStore(EventsWorkerStore):
                 INNER JOIN events AS e USING (room_id, event_id)
                 WHERE
                     c.type = 'm.room.member'
-                    AND state_key = ?
+                    AND c.state_key = ?
                     AND m.membership = ?
             """
 
