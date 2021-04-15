@@ -52,7 +52,6 @@ class ModuleApi:
         self._server_name = hs.hostname
         self._presence_stream = hs.get_event_sources().sources["presence"]
         self._state = hs.get_state_handler()
-        self._presence_router = hs.get_presence_router()
 
         self._federation = None
         if hs.should_send_federation():
@@ -442,7 +441,7 @@ class ModuleApi:
                 # Send to remote destinations
                 hosts_and_states = await get_interested_remotes(
                     self._store,
-                    self._presence_router,
+                    self._hs.get_presence_router(),
                     presence_events,
                     self._state,
                 )
