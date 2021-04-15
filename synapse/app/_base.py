@@ -539,7 +539,7 @@ def max_request_body_size(config: HomeServerConfig) -> int:
     # /federation/v1/send request.
     #
     # The main thing in such a request is up to 50 PDUs, and up to 100 EDUs. PDUs are
-    # limited to 65535 bytes (possibly slightly more if the sender didn't use canonical
+    # limited to 65536 bytes (possibly slightly more if the sender didn't use canonical
     # json encoding); there is no specced limit to EDUs (see
     # https://github.com/matrix-org/matrix-doc/issues/3121).
     #
